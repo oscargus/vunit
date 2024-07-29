@@ -237,14 +237,17 @@ class GHDLInterface(SimulatorInterface):  # pylint: disable=too-many-instance-at
         """
         Convert standard to format of GHDL command line flag
         """
+        if vhdl_standard == VHDL.STD_1993:
+            return "93"
+
         if vhdl_standard == VHDL.STD_2002:
             return "02"
 
         if vhdl_standard == VHDL.STD_2008:
             return "08"
 
-        if vhdl_standard == VHDL.STD_1993:
-            return "93"
+        if vhdl_standard == VHDL.STD_2019:
+            return "19"
 
         raise ValueError(f"Invalid VHDL standard {vhdl_standard!s}")
 
